@@ -1,0 +1,53 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+#myCarousel img {
+    height: 75vh;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(255, 255, 255, 0.356);
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.marketing {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.points {
+    text-align: center;
+    padding: 50px 15px;
+}
+
+.points .row .exposition p {
+    padding: 0px 50px;
+}
+
+// Móviles en horizontal o tablets en vertical
+@media (min-width: 768px) { 
+
+}
+
+// Tablets en horizonal y escritorios normales 
+@media (min-width: 1024px) { 
+
+}
+
+// Escritorios muy anchos 
+@media (min-width: 1200px) { 
+    #myCarousel img {
+        height: 95vh;
+        width: 100%;
+        object-fit: cover;
+    }
+}
