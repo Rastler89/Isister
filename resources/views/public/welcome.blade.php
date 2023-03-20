@@ -20,7 +20,7 @@
                 <div class="carousel-caption">
                     <h1>{{__("La importancia de nuestras mascotas")}}</h1>
                     <p>{{__("No hay nada más importante que el bienestar de tus mascotas. Con nuestra aplicación, podrás tener un registro completo de sus necesidades y cuidados.")}}</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>-->
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                 <div class="carousel-caption">
                     <h1>{{__("Seguimiento de rutinas")}}</h1>
                     <p>{{__("Desde la hora de la comida hasta los paseos diarios, nuestra aplicación de seguimiento de mascotas hace que sea fácil mantener a tus mascotas felices y saludables.")}}</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>-->
                 </div>
             </div>
         </div>

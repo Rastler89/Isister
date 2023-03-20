@@ -20,13 +20,21 @@
 </head>
 <body>
     <div id="app">
-        @include('public.partials.header')
-
+        @if(Auth::guest())
+            @if(!str_contains(url()->current(), '/login') && !str_contains(url()->current(), 'register'))
+                @include('layouts.header_public')
+            @endif
+        @else
+            @include('layouts.header_private')
+        @endif
+ 
         <main>
             @yield('content')
         </main>
 
-        @include('public.partials.footer')
+        @if(!str_contains(url()->current(), '/login') && !str_contains(url()->current(), 'register'))
+        @include('layouts.footer_public')
+        @endif
     </div>
 
     @yield('javascript')

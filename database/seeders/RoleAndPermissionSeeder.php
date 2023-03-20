@@ -5,6 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class RoleAndPermissionSeeder extends Seeder
 {
     /**
@@ -12,14 +16,15 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run(): void
     {
+        Permission::create(['name' => 'dashboard']);
         Permission::create(['name' => 'create-users']);
         Permission::create(['name' => 'edit-users']);
         Permission::create(['name' => 'delete-users']);
-        Permission::create(['']);
 
         $adminRole = Role::create(['name' => 'Admin']);
 
         $adminRole->givePermissionTo([
+            'dashboard',
             'create-users',
             'edit-users',
             'delete-users'

@@ -19,4 +19,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function() {
+    //Private
+    Route::get('/pets', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //ADMIN
+    Route::group(['middleware' => ['permission:dashboard']], function() {
+        Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin');
+
+        /** S P E C I E S */
+        Route::get('/dashboard/species', [App\Http\Controllers\SpecieController::class, 'index'])->name('species.index');
+        Route::get('/dashboard/species/new', [App\Http\Controllers\SpecieController::class, 'create'])->name('species.create');
+        Route::post('/dashboard/species/new', [App\Http\Controllers\SpecieController::class, 'store'])->name('species.store');
+        Route::get('/dashboard/species/edit/{id}', [App\Http\Controllers\SpecieController::class, 'edit'])->name('species.edit');
+        Route::put('/dashboard/species/edit/{id}', [App\Http\Controllers\SpecieController::class, 'update'])->name('species.update');
+    });
+});
