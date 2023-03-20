@@ -128,7 +128,7 @@
 							<ul class="submenu-list list-unstyled">
 								<li class="submenu-item"><a class="submenu-link {{ (request()->is('dashboard/species')) ? 'active' : '' }}" href="{{route('species.index')}}">{{__("Especies")}}</a></li>
 								<li class="submenu-item"><a class="submenu-link {{ (request()->is('dashboard/races')) ? 'active' : '' }}" href="{{route('races.index')}}">{{__("Razas")}}</a></li>
-								<li class="submenu-item"><a class="submenu-link" href="settings.html">{{__("Enfermedades")}}</a></li>
+								<li class="submenu-item"><a class="submenu-link {{ (request()->is('dashboard/diseases')) ? 'active' : '' }}" href="{{route('diseases.index')}}">{{__("Enfermedades")}}</a></li>
 							</ul>
 						</div>
 					</li>

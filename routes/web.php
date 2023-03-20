@@ -40,5 +40,12 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('/dashboard/races/new', [App\Http\Controllers\RaceController::class, 'store'])->name('races.store');
         Route::get('/dashboard/races/edit/{id}', [App\Http\Controllers\RaceController::class, 'edit'])->name('races.edit');
         Route::put('/dashboard/races/edit/{id}', [App\Http\Controllers\RaceController::class, 'update'])->name('races.update');
+
+        /** D I S E A S E S */
+        Route::get('/dashboard/diseases', [App\Http\Controllers\DiseaseController::class, 'index'])->name('diseases.index');
+        Route::get('/dashboard/diseases/new', [App\Http\Controllers\DiseaseController::class, 'create'])->name('diseases.create');
+        Route::post('/dashboard/diseases/new', [App\Http\Controllers\DiseaseController::class, 'store'])->name('diseases.store');
+        Route::get('/dashboard/diseases/{id}', [App\Http\Controllers\DiseaseController::class, 'edit'])->name('diseases.edit');
+        Route::put('/dahsboard/diseases/{id}', [App\Http\Controllers\DiseaseController::class, 'update'])->name('diseases.update');
     });
 });

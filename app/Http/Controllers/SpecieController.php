@@ -33,7 +33,7 @@ class SpecieController extends Controller
     {
         $validatedData = $request->validate([
             'name_en' => ['required'],
-            'name_es' => ['required']
+            'name_es' => ['required'],
         ]);
 
         $specie = new Specie();

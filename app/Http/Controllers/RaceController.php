@@ -33,7 +33,8 @@ class RaceController extends Controller
     {
         $validatedData = $request->validate([
             'name_en' => ['required'],
-            'name_es' => ['required']
+            'name_es' => ['required'],
+            'specie_id' => ['required']
         ]);
 
         $race = new Race();
@@ -74,7 +75,24 @@ class RaceController extends Controller
      */
     public function update(Request $request, Race $race)
     {
-        //
+        $validatedData = $request->validate([
+            'name_en' => ['required'],
+            'name_es' => ['required'],
+            'specie_id' => ['required']
+        ]);
+
+        $race = Race::find($id);
+        if($race->name_en != $request->get('name_en')) {
+            $race->name_en = $request->get('name_en');
+        }
+        if($race->name_es != $request->get('name_es')) {
+            $race->name_es = $request->get('name_es');
+        }
+        if($race->specie_id != $request->get('specie_id')) {
+            $race->specie_id = $request->get('specie_id');
+        }
+        $race->display = $request->get('display')=='on';
+        $race->save();
     }
 
     /**
