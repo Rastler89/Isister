@@ -127,7 +127,7 @@
 						<div id="submenu-1" class="collapse submenu submenu-1 {{ (request()->is('dashboard/species') || request()->is('dashboard/races') || request()->is('dashboard/diseases')) ? 'show' : '' }}" data-bs-parent="#menu-accordion">
 							<ul class="submenu-list list-unstyled">
 								<li class="submenu-item"><a class="submenu-link {{ (request()->is('dashboard/species')) ? 'active' : '' }}" href="{{route('species.index')}}">{{__("Especies")}}</a></li>
-								<li class="submenu-item"><a class="submenu-link" href="account.html">{{__("Razas")}}</a></li>
+								<li class="submenu-item"><a class="submenu-link {{ (request()->is('dashboard/races')) ? 'active' : '' }}" href="{{route('races.index')}}">{{__("Razas")}}</a></li>
 								<li class="submenu-item"><a class="submenu-link" href="settings.html">{{__("Enfermedades")}}</a></li>
 							</ul>
 						</div>

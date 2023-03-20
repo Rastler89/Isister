@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\I18n\LocalizableModel;
+use Kyslik\ColumnSortable\Sortable;
 
 class Race extends LocalizableModel
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     protected $fillable = [
         'name_en', 
@@ -16,6 +17,10 @@ class Race extends LocalizableModel
 
     protected $localizable = [
         'name'
+    ];
+
+    public $sortable = [
+        'name_es', 'name_en', 'display'
     ];
 
     public function specie() {

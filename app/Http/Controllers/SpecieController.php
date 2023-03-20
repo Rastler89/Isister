@@ -36,7 +36,7 @@ class SpecieController extends Controller
             'name_es' => ['required']
         ]);
 
-        $spece = new Specie();
+        $specie = new Specie();
         $specie->name_en = $request->get('name_en');
         $specie->name_es = $request->get('name_es');
         $specie->display = $request->get('display');
