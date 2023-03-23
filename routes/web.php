@@ -22,6 +22,10 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     //Private
     Route::get('/pets', [App\Http\Controllers\PetController::class, 'index'])->name('home');
+    Route::post('/pets', [App\Http\Controllers\PetController::class, 'store'])->name('pets.store');
+    Route::get('/pets/{id}', [App\Http\Controllers\PetController::class, 'show'])->name('pets.show');
+    Route::get('/pets/{id}/edit', [App\Http\Controllers\PetController::class, 'edit'])->name('pets.edit');
+    Route::post('/pets/{id}/edit', [App\Http\Controllers\PetController::class, 'update'])->name('pets.update');
 
     //ADMIN
     Route::group(['middleware' => ['permission:dashboard']], function() {

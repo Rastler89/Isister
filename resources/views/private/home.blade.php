@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pt-4">
     <div class="row">
       <div class="card col-12">
           <div class="card-body">
@@ -21,9 +21,9 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{$pet->name}}</h5>
-                <p class="card-text">{{__("Race")}}: {{$pet->race}}</p>
+                <p class="card-text">{{__("Race")}}: {{$pet->race->name}}</p>
                 <p class="card-text"><small class="text-muted">{{$pet->birthday}}</small></p>
-                <a href="#" class="btn btn-outline-info">{{__("View more")}}</a>
+                <a href="{{route('pets.show', ['id' => $pet->id])}}" class="btn btn-outline-info">{{__("View more")}}</a>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
       @endforeach
     </div>
   </div>
-  <form method="POST" action="#" enctype="multipart/form-data">
+  <form method="POST" action="{{route('pets.store')}}" enctype="multipart/form-data">
     @csrf
   <div class="modal fade" id="addNewPet" tabindex="-1" aria-labelledby="addNewPetLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -57,7 +57,7 @@
           </div>
           <div class="mb-3">
             <label for="race" class="form-label">{{__("Race")}}</label>
-            <select class="form-select" aria-label='{{__("Please select one race")}}' id="race" name="race"></select>
+            <select class="form-select" aria-label='{{__("Please select one race")}}' id="race" name="race_id"></select>
           </div>
           <div class="mb-3">
             <label for="gender" class="form-label">{{__("Gender")}}</label>

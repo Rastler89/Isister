@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pet;
 use App\Models\Specie;
+use App\Models\Race;
 use Illuminate\Http\Request;
 
 class PetController extends Controller
@@ -37,8 +38,8 @@ class PetController extends Controller
         $pet->gender = $request->get('gender');
         $pet->birthday = $request->get('birthday');
         $pet->code = $request->get('code');
-        $pet->race = $request->get('race');
-        $pet->owner = auth()->user()->id;
+        $pet->race_id = $request->get('race_id');
+        $pet->user_id = auth()->user()->id;
 
         if($request->hasFile('photo') && $request->file('photo')->isValid()) {
             $image = $request->file('photo');
@@ -56,25 +57,69 @@ class PetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pet $pet)
+    public function show($id)
     {
-        //
+        $pet = Pet::find($id);
+
+        $pet->age = getAge($pet->birthday);
+
+        $vaccines = [];
+        $diagnoses = [];
+        $diets = [];
+        $walks = [];
+
+        return view('private.Pet.show', ['pet' => $pet, 'vaccines' => $vaccines, 'diagnostics' => $diagnoses, 'diets' => $diets, 'walks' => $walks]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pet $pet)
+    public function edit($id)
     {
-        //
+        $pet = Pet::find($id);
+        $species = Specie::all();
+        $races = Race::all();
+
+        return view('private.Pet.edit', ['pet' => $pet, 'species' => $species, 'races' => $races]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pet $pet)
+    public function update(Request $request, $id)
     {
-        //
+        $pet = Pet::find($id);
+
+        if($request->hasFile('photo') && $request->file('photo')->isValid()) {
+            if (File::exists($pet->photo)) {
+                File::delete('ruta/del/archivo');
+            }
+            $image = $request->file('photo');
+            $store_path = 'upload/pets';
+            $name = md5(uniqid(rand(), true)) . str_replace(' ', '-', $image->getClientOriginalName());
+            $image->move(public_path('/' . $store_path), $name);
+            $pet->photo = $store_path.'/'.$name;
+        }
+
+        if($request->get('name') != $pet->name) {
+            $pet->name = $request->get('name');
+        }
+        if($request->get('gender') != $pet->gender) {
+            $pet->gender = $request->get('gender');
+        }
+        if($request->get('birthday') != $pet->birthday) {
+            $pet->birthday = $request->get('birthday');
+        }
+        if($request->get('code') != $pet->code) {
+            $pet->code = $request->get('code');
+        }
+        if($request->get('race') != $pet->race) {
+            $pet->race = $request->get('race');
+        }
+
+        $pet->save();
+
+        return redirect()->route('pets.show',['id' => $id]);
     }
 
     /**
