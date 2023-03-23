@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pet;
+use App\Models\Specie;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $pets = Pet::where('user_id','=',auth()->user()->id)->get();
+        $species = Specie::all();
+
+        return view('private.home', ['pets' => $pets, 'species' => $species]);
     }
 }

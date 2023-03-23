@@ -102,4 +102,12 @@ class RaceController extends Controller
     {
         //
     }
+
+    // API
+
+    public function getAllBySpecie($id) {
+        $races = Race::where('specie_id','=',$id)->get();
+
+        return response()->json($races);
+    }
 }

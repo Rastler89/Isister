@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
     //Private
-    Route::get('/pets', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/pets', [App\Http\Controllers\PetController::class, 'index'])->name('home');
 
     //ADMIN
     Route::group(['middleware' => ['permission:dashboard']], function() {
