@@ -22,7 +22,7 @@
                         </span>
                     @enderror
                   <input type="text" id="name" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
-                  <label class="form-label" for="name">Name</label>
+                  <label class="form-label" for="name">{{__("Nombre")}}</label>
                 </div>
   
                 <div class="form-outline form-white mb-4">
@@ -32,7 +32,7 @@
                         </span>
                     @enderror
                   <input type="email" id="typeEmailX" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
-                  <label class="form-label" for="typeEmailX">Email</label>
+                  <label class="form-label" for="typeEmailX">{{__("Correo")}}</label>
                 </div>
   
                 <div class="form-outline form-white mb-4">
@@ -42,7 +42,7 @@
                         </span>
                     @enderror
                   <input type="password" id="typePasswordX" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
-                  <label class="form-label" for="typePasswordX">Password</label>
+                  <label class="form-label" for="typePasswordX">{{__("Contraseña")}}</label>
                 </div>
                 <div class="form-outline form-white mb-4">
                     @error('password')
@@ -50,11 +50,11 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                  <input type="password" id="confirmPassword" class="form-control form-control-lg @error('password-confirm') is-invalid @enderror" name="password-confirm" required autocomplete="current-password" />
-                  <label class="form-label" for="confirmPassword">Confirm Password</label>
+                  <input type="password" id="confirmPassword" class="form-control form-control-lg @error('password-confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password" />
+                  <label class="form-label" for="confirmPassword">{{__("Confirme contraseña")}}</label>
                 </div>
   
-                <button class="btn btn-secondary btn-lg px-5 text-white" type="submit">Register</button>
+                <button class="btn btn-secondary btn-lg px-5 text-white" type="submit">{{__("Registrar")}}</button>
   <!--
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
                   <a href="#!" class=""><i class="fab fa-facebook-f fa-lg"></i></a>
@@ -64,7 +64,7 @@
             -->
               </div>
               <div>
-                <p class="mb-0">You have an account? <a href="{{route('login')}}">Sign In</a>
+                <p class="mb-0">{{__("Ya tienes cuenta?")}} <a href="{{route('login')}}">{{__("Login")}}</a>
                 </p>
               </div>
   

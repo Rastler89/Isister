@@ -23,8 +23,8 @@
   
               <div class="mb-md-5 mt-md-4 pb-5">
   
-                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                <p class="text-50 mb-5">Please enter your login and password!</p>
+                <h2 class="fw-bold mb-2 text-uppercase">{{__("Login")}}</h2>
+                <p class="text-50 mb-5">{{__("Por favor, entre su contraseña.")}}</p>
   
                 <div class="form-outline form-white mb-4">
                     @error('email')
@@ -33,7 +33,7 @@
                         </span>
                     @enderror
                   <input type="email" id="typeEmailX" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
-                  <label class="form-label" for="typeEmailX">Email</label>
+                  <label class="form-label" for="typeEmailX">{{__("Correo")}}</label>
                 </div>
   
                 <div class="form-outline form-white mb-4">
@@ -43,7 +43,7 @@
                         </span>
                     @enderror
                   <input type="password" id="typePasswordX" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
-                  <label class="form-label" for="typePasswordX">Password</label>
+                  <label class="form-label" for="typePasswordX">{{__("Contraseña")}}</label>
                 </div>
                 <div class="form-outline form-white mb-4">
                     <div class="form-check">
@@ -61,7 +61,7 @@
                     </a>
                 </p>
   
-                <button class="btn btn-secondary btn-lg px-5 text-white" type="submit">Login</button>
+                <button class="btn btn-secondary btn-lg px-5 text-white" type="submit">{{__("Entrar")}}</button>
   <!--
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
                   <a href="#!" class=""><i class="fab fa-facebook-f fa-lg"></i></a>
@@ -71,7 +71,7 @@
             -->
               </div>
               <div>
-                <p class="mb-0">Don't have an account? <a href="{{route('register')}}">Sign Up</a>
+                <p class="mb-0">{{__("No tienes cuenta?")}} <a href="{{route('register')}}">{{__("Registrarse")}}</a>
                 </p>
               </div>
   

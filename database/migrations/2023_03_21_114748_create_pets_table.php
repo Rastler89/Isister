@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('photo');
             $table->string('code',50);
+            $table->boolean('active')->default(1);
             $table->unsignedBigInteger('race_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

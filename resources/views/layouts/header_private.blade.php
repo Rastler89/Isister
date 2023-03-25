@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">{{__("Home")}}</a>
+            <a class="nav-link active" aria-current="page" href="{{route('home')}}">{{__("Home")}}</a>
           </li>
           <!--<li class="nav-item">
             <a class="nav-link" href="#">Features</a>

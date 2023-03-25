@@ -13,7 +13,10 @@
             <p class="text-muted mb-1">{{$pet->age}} {{__('years')}} - @if($pet->gender == 0) {{__('Male')}} @else {{__('Female')}} @endif</p>
             <p class="text-muted mb-4">{{__('Code')}}: <strong>{{$pet->code}}</strong></p>
             <div class="d-flex justify-content-center mb-2">
-            <a href="{{route('pets.edit', ['id' => $pet->id])}}" class="btn btn-outline-warning">{{__('Editar')}}</a>
+                <div class="btn-group" role="group" aria-label="Options">
+                    <a href="{{route('pets.edit', ['id' => $pet->id])}}" class="btn btn-outline-warning">{{__('Editar')}}</a>
+                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#confirmPet">{{__('Dar de baja')}}</button>
+                </div>
             </div>
         </div>
         </div>
@@ -170,26 +173,28 @@
 -->
 </div>
 
-
-  
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<form method="POST" action="{{route('pets.delete', ['id' => $pet->id])}}">
+    @csrf
+    @method("DELETE")
+<div class="modal fade" id="confirmPet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+      <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">{{__("Dar de baja")}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            ...
+          <p class="text-danger">{{__("Estas seguro de dar de baja a esta mascota?")}}</p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__("No")}}</button>
+          <button class="btn btn-danger">{{__("Si")}}</button>
         </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+</form>
+
 @endsection
 
 @section('javascript')

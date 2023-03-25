@@ -14,7 +14,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::where('user_id','=',auth()->user()->id)->get();
+        $pets = Pet::where('user_id','=',auth()->user()->id)->where('active','=',1)->get();
         $species = Specie::all();
 
         return view('private.home', ['pets' => $pets, 'species' => $species]);
@@ -125,8 +125,14 @@ class PetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pet $pet)
+    public function destroy($id)
     {
-        //
+        $pet = Pet::find($id);
+
+        $pet->active = 0;
+
+        $pet->save();
+
+        return redirect()->route('home');
     }
 }

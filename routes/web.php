@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/pets/{id}', [App\Http\Controllers\PetController::class, 'show'])->name('pets.show');
     Route::get('/pets/{id}/edit', [App\Http\Controllers\PetController::class, 'edit'])->name('pets.edit');
     Route::post('/pets/{id}/edit', [App\Http\Controllers\PetController::class, 'update'])->name('pets.update');
+    Route::delete('/pets/{id}', [App\Http\Controllers\PetController::class, 'destroy'])->name('pets.delete');
 
     //ADMIN
     Route::group(['middleware' => ['permission:dashboard']], function() {
