@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('public.welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth','verified']], function() {
     //Private
     Route::get('/pets', [App\Http\Controllers\PetController::class, 'index'])->name('home');
     Route::post('/pets', [App\Http\Controllers\PetController::class, 'store'])->name('pets.store');
