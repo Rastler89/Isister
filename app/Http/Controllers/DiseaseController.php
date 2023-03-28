@@ -22,7 +22,7 @@ class DiseaseController extends Controller
      */
     public function create()
     {
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
         return view('dashboard.Disease.create', ['species' => $species]);
     }
 
@@ -63,7 +63,7 @@ class DiseaseController extends Controller
      */
     public function show($id)
     {
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
         $disease = Disease::find($id);
         
         return view('dashboard.Disease.edit', ['disease' => $disease, 'species' => $species]);
@@ -74,7 +74,7 @@ class DiseaseController extends Controller
      */
     public function edit($id)
     {
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
         $disease = Disease::find($id);
         foreach($disease->species as $spec) {
             $disease_species[] = $spec->id;

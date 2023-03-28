@@ -16,7 +16,7 @@ class PetController extends Controller
     public function index()
     {
         $pets = Pet::where('user_id','=',auth()->user()->id)->where('active','=',1)->get();
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
 
         return view('private.home', ['pets' => $pets, 'species' => $species]);
     }
@@ -78,8 +78,8 @@ class PetController extends Controller
     public function edit($id)
     {
         $pet = Pet::find($id);
-        $species = Specie::all();
-        $races = Race::all();
+        $species = Specie::where('display','=',1)->get();
+        $races = Race::where('display','=',1)->get();
 
         return view('private.Pet.edit', ['pet' => $pet, 'species' => $species, 'races' => $races]);
     }

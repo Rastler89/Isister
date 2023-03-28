@@ -26,7 +26,7 @@
             </ul>
           </li>-->
         </ul>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav me-auto">
 

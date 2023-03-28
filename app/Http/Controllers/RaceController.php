@@ -22,7 +22,7 @@ class RaceController extends Controller
      */
     public function create()
     {
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
         return view('dashboard.race.create', ['species' => $species]);
     }
 
@@ -54,7 +54,7 @@ class RaceController extends Controller
     public function show($id)
     {
         $race = Race::find($id);
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
 
         return view('dashboard.Race.edit', ['species' => $species, 'race' => $race]);
     }
@@ -65,7 +65,7 @@ class RaceController extends Controller
     public function edit($id)
     {
         $race = Race::find($id);
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
 
         return view('dashboard.Race.edit', ['species' => $species, 'race' => $race]);
     }
@@ -106,7 +106,7 @@ class RaceController extends Controller
     // API
 
     public function getAllBySpecie($id) {
-        $races = Race::where('specie_id','=',$id)->get();
+        $races = Race::where('specie_id','=',$id)->where('display','=',1)->get();
 
         return response()->json($races);
     }

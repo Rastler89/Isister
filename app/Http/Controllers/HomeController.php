@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $pets = Pet::where('user_id','=',auth()->user()->id)->get();
-        $species = Specie::all();
+        $species = Specie::where('display','=',1)->get();
 
         return view('private.home', ['pets' => $pets, 'species' => $species]);
     }
