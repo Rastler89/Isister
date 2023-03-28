@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pet;
 use App\Models\Specie;
 use App\Models\Race;
+use App\Models\Vaccine;
 use Illuminate\Http\Request;
 
 class PetController extends Controller
@@ -63,7 +64,7 @@ class PetController extends Controller
 
         $pet->age = getAge($pet->birthday);
 
-        $vaccines = [];
+        $vaccines = Vaccine::where('pet_id','=',$id)->get();
         $diagnoses = [];
         $diets = [];
         $walks = [];

@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('species/{id}/races',[App\Http\Controllers\RaceController::class, 'getAllBySpecie']);
+Route::get('pet/{id}/vaccines', [App\Http\Controllers\VaccineControll::class, 'getAllByPet']);

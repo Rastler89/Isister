@@ -17,4 +17,8 @@ class Pet extends Model
     public function race() {
         return $this->belongsTo(Race::class);
     }
+
+    public function vaccines() {
+        return $this->belongsTo(Vaccine::class);
+    }
 }

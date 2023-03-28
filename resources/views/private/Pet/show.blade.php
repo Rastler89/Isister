@@ -22,18 +22,16 @@
         </div>
         <div class="card mb-4 mb-lg-0">
             <!-- actions -->
-            <!--
             <div class="card-body p-0">
                 <ul class="list-group list-group-flush rounded-3">
                 <li class="list-group-item text-center p-3">
                     <h5>{{__("Vaccines")}}</h5>
                     <p class="mb-0 btn-group" style="text-align:center" role="group" aria-label="">
-                        <a class="btn btn-primary" href="#">{{__("Add")}}</a>
-                        <a class="btn btn-success" href="">{{__("Download")}}</a>
+                        <a class="btn btn-primary" href="{{route('vaccines.create', ['id' => $pet->id])}}">{{__("Add")}}</a>
                     </p>
                 </li>
                 <li class="list-group-item text-center p-3">
-                    <h5>{{__("Diagnostics")}}</h5>
+                    <h5>{{__("Historial")}}</h5>
                     <p class="mb-0 btn-group" style="text-align:center" role="group" aria-label="">
                         <a class="btn btn-primary" href="#">{{__("Add")}}</a>
                     </p>
@@ -52,10 +50,8 @@
                 </li>
                 </ul>
             </div>
-        -->
         </div>
     </div>
-    <!--
     <div class="col-lg-8" id="showData">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -170,7 +166,6 @@
         <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">4</div>
         </div>
     </div>
--->
 </div>
 
 <form method="POST" action="{{route('pets.delete', ['id' => $pet->id])}}">
