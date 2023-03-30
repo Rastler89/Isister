@@ -33,7 +33,7 @@
                 <li class="list-group-item text-center p-3">
                     <h5>{{__("Historial")}}</h5>
                     <p class="mb-0 btn-group" style="text-align:center" role="group" aria-label="">
-                        <a class="btn btn-primary" href="#">{{__("Add")}}</a>
+                        <a class="btn btn-primary" href="{{route('diagnostics.create', ['id' => $pet->id])}}">{{__("Add")}}</a>
                     </p>
                 </li>
                 <li class="list-group-item text-center p-3">

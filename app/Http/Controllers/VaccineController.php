@@ -25,11 +25,7 @@ class VaccineController extends Controller
     {
         $pet = Pet::find($id);
 
-        $specie = Specie::find($pet->race->specie_id);
-
-        $diseases = $specie->diseases;
-
-        return view('private.Vaccine.create', ['pet'=>$pet, 'diseases'=>$diseases]);
+        return view('private.Vaccine.create', ['pet'=>$pet, 'diseases'=>$pet->race->specie->diseases]);
     }
 
     /**

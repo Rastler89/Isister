@@ -34,6 +34,10 @@ Route::group(['middleware' => ['auth','verified']], function() {
     Route::get('/vaccines/add/{id}', [App\Http\Controllers\VaccineController::class, 'create'])->name('vaccines.create');
     Route::post('/vaccines/add/{id}', [App\Http\Controllers\VaccineController::class, 'store'])->name('vaccines.store');
 
+    /** D I A G N O S T I C S */
+    Route::get('/diagnostics/add/{id}', [App\Http\Controllers\DiagnosticController::class, 'create'])->name('diagnostics.create');
+    Route::post('/diagnostics/add/{id}', [App\Http\Controllers\DiagnosticController::class, 'store'])->name('diagnostics.store');
+
     //ADMIN
     Route::group(['middleware' => ['permission:dashboard']], function() {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin');
