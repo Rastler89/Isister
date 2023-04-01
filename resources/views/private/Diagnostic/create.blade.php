@@ -81,7 +81,7 @@
             <input type="date" class="form-control" id="finish" name="treatment_finish[]" />
         </div>
         <div class="mb-3">
-            <label for="periodicty" class="form-label">{{__("Periodicity")}}</label>
+            <label for="periodicity" class="form-label">{{__("Periodicity")}}</label>
             <div class="input-group">
                 <input type="number" class="form-control" id="peridocity" name="treatment_periodicity[]" />
                 <select class="form-control" id="periodicity_type" name="treatment_periodicity_type[]">

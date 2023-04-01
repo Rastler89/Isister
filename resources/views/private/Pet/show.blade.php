@@ -160,10 +160,66 @@
                     @endforeach
                 @endif
             </div>
-        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">3</div>
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+            @if(count($diagnostics)!=0)
+                @foreach($diagnostics as $diagnostic)
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$diagnostic->title}}</h5>
+                        <p class="card-text">{{$diagnostic->description}}</p>
+                        @if(count($diagnostic->surgeries)!=0)
+                        <h5 class="card-title">{{__("Surgeries")}}
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            @foreach($diagnostic->surgeries as $surgery)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="title_surgery{{$loop->iteration}}">
+                                    <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#surgery{{$loop->iteration}}" aria-expanded="true" aria-controls="surgery{{$loop->iteration}}">
+                                        {{$surgery->name}}
+                                    </button>
+                                </h2>
+                                <div id="surgery{{$loop->iteration}}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <p>{{$surgery->description}}</p>
+                                    <p><small>{{$surgery->date}}</small></p>
+                                </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        @endif
+                        @if(count($diagnostic->medications)!=0)
+                        <h5 class="card-title">{{__("Medications")}}
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            @foreach($diagnostic->medications as $medication)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="title_surgery{{$loop->iteration}}">
+                                    <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#medication{{$loop->iteration}}" aria-expanded="true" aria-controls="medication{{$loop->iteration}}">
+                                        {{$medication->name}}
+                                    </button>
+                                </h2>
+                                <div id="medication{{$loop->iteration}}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    {{__("Is supplied every: ")}} {{$medication->periodicity}} {{$medication->periodicity_type}}<br/>
+                                    <small>{{__("Start day")}}:  {{$medication->init}}</small><br/>
+                                    <small>{{__("End day")}}:: {{$medication->finish}}</small>
+                                </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        @endif
+                    </div>
+                    <!--<ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>{{__("Open date diagnostic")}}:</strong> {{$diagnostic->init}}</li>
+                        <li class="list-group-item"><strong>{{__("Close date diagnostic")}}:<strong> {{$diagnostic->finish}}</li>
+                    </ul>-->
+                    
+                </div>
+                @endforeach
+            @endif
+        </div>
         <div class="tab-pane fade" id="diet-tab-panel" role="tabpanel" aria-labelledby="diet-tab" tabindex="0">diet</div>
         <div class="tab-pane fade" id="walk-tab-panel" role="tabpanel" aria-labelledby="walk-tab" tabindex="0">walk</div>
-        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">4</div>
         </div>
     </div>
 </div>

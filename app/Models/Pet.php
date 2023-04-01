@@ -19,6 +19,10 @@ class Pet extends Model
     }
 
     public function vaccines() {
-        return $this->belongsTo(Vaccine::class);
+        return $this->hasMany(Vaccine::class);
+    }
+
+    public function historial() {
+        return $this->hasMany(Diagnostic::class);
     }
 }

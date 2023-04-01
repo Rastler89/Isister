@@ -64,8 +64,8 @@ class PetController extends Controller
 
         $pet->age = getAge($pet->birthday);
 
-        $vaccines = Vaccine::where('pet_id','=',$id)->get();
-        $diagnoses = [];
+        $vaccines = $pet->vaccines;
+        $diagnoses = $pet->historial;
         $diets = [];
         $walks = [];
 
