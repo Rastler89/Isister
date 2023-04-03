@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\I18n\LocalizableModel;
+use App\i18n\LocalizableModel;
 use Kyslik\ColumnSortable\Sortable;
 
 class Specie extends LocalizableModel
