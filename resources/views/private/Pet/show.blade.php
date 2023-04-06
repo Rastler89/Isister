@@ -39,7 +39,7 @@
                 <li class="list-group-item text-center p-3">
                     <h5>{{__("Diets")}}</h5>
                     <p class="mb-0 btn-group" style="text-align:center" role="group" aria-label="">
-                        <a class="btn btn-primary" href="">{{__("Add")}}</a>
+                        <a class="btn btn-primary" href="{{route('diets.create', ['id' => $pet->id])}}">{{__("Add")}}</a>
                     </p>
                 </li>
                 <li class="list-group-item text-center p-3">
@@ -68,9 +68,6 @@
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="walk-tab" data-bs-toggle="tab" data-bs-target="#walk-tab-panel" type="button" role="tab" aria-controls="walk-tab-panel" aria-selected="false" @if(count($walks)==0) disabled @endif>{{__("Walks")}}</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -209,10 +206,10 @@
                         </div>
                         @endif
                     </div>
-                    <!--<ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush">
                         <li class="list-group-item"><strong>{{__("Open date diagnostic")}}:</strong> {{$diagnostic->init}}</li>
                         <li class="list-group-item"><strong>{{__("Close date diagnostic")}}:<strong> {{$diagnostic->finish}}</li>
-                    </ul>-->
+                    </ul>
                     
                 </div>
                 @endforeach

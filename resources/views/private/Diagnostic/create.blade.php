@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 mx-auto">
-        <form method="POST" action="">
+        <form method="POST" action="{{route('diagnostic.store',['id' => $pet->id])}}">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">{{__("Name")}}</label>

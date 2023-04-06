@@ -38,6 +38,10 @@ Route::group(['middleware' => ['auth','verified']], function() {
     Route::get('/diagnostics/add/{id}', [App\Http\Controllers\DiagnosticController::class, 'create'])->name('diagnostics.create');
     Route::post('/diagnostics/add/{id}', [App\Http\Controllers\DiagnosticController::class, 'store'])->name('diagnostics.store');
 
+    /** D I E T S */
+    Route::get('/diets/add/{id}', [App\Http\Controllers\DietController::class, 'create'])->name('diets.create');
+    Route::post('/diets/add/{id}', [App\Http\Controllers\DietController::class, 'store'])->name('diets.store');
+
     //ADMIN
     Route::group(['middleware' => ['permission:dashboard']], function() {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin');

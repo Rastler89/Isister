@@ -25,4 +25,8 @@ class Pet extends Model
     public function historial() {
         return $this->hasMany(Diagnostic::class);
     }
+
+    public function diets() {
+        return $this->hasMany(Diet::class);
+    }
 }
