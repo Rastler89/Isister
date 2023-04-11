@@ -44,5 +44,15 @@
 @endsection
 
 @section('javascript')
-
+<script>
+    $( window ).on( "load", function() {
+        $("#repetitive").change(function() {
+            if( $('#repetitive').prop('checked') ) {
+                $('#dayOfWeek').prop('disabled', 'disabled');
+            } else {
+                $('#dayOfWeek').prop('disabled', false);
+            }
+        });
+    });
+</script>
 @endsection
