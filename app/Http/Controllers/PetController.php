@@ -30,7 +30,7 @@ class PetController extends Controller
             $pet->months = Carbon::parse($pet->birthday)->month;
             $pet->race_name = $pet->race->name;
         }
-        $species = Specie::where('display','=',1)->get();
+        $species = Specie::all();
 
         $data = [
             'pets' => $pets,
