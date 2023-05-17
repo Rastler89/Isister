@@ -7,6 +7,8 @@ use App\Models\Specie;
 use App\Models\Race;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Carbon\Carbon;
 
 class PetController extends Controller
 {
@@ -19,6 +21,27 @@ class PetController extends Controller
         $species = Specie::where('display','=',1)->get();
 
         return view('private.home', ['pets' => $pets, 'species' => $species]);
+    }
+
+    public function indexApi() {
+        $pets = Pet::where('user_id','=',auth()->user()->id)->where('active','=',1)->get();
+        foreach($pets as $pet) {
+            $pet->age = Carbon::parse($pet->birthday)->age;
+            $pet->months = Carbon::parse($pet->birthday)->month;
+            $pet->race_name = $pet->race->name;
+        }
+        $species = Specie::all();
+
+        $data = [
+            'pets' => $pets,
+            'species' => $species,
+        ];
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'La solicitud se completó correctamente',
+            'data' => $data
+        ], Response::HTTP_OK);
     }
 
     /**
