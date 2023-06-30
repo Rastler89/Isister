@@ -100,13 +100,7 @@
 									<path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
 								</svg>
 							</span>
-							<span class="nav-link-text">Overview</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-							<span class="nav-icon"></span>
-							<span class="nav-link-text">{{__("hola")}}</span>
+							<span class="nav-link-text">{{__("Home")}}</span>
 						</a>
 					</li>
 					<li class="nav-item has-submenu">
@@ -132,7 +126,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="nav-item">
+					<!--<li class="nav-item">
 						<a class="nav-link" href="help.html">
 							<span class="nav-icon">
 								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -142,14 +136,14 @@
 							</span>
 							<span class="nav-link-text">Help</span>
 						</a>
-					</li>					    
+					</li>-->				    
 				</ul>
 			</nav>
-			<!--
+			
 			<div class="app-sidepanel-footer">
 				<nav class="app-nav app-nav-footer">
 					<ul class="app-menu footer-menu list-unstyled">
-						<li class="nav-item">
+						<!--<li class="nav-item">
 							<a class="nav-link" href="settings.html">
 								<span class="nav-icon">
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -159,11 +153,11 @@
 								</span>
 								<span class="nav-link-text">Settings</span>
 							</a>
-						</li>
+						</li>-->
 					</ul>
 				</nav>
 			</div>
-		-->
+		
 		</div>
 	</div>
 </header>

@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title.section')
+Enfermedades
+@endsection
+
 @section('content')
 <div class="container-xl">
     <div class="row g-3 mb-4 align-items-center justify-content-between">
